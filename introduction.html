@@ -1,0 +1,827 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A React/NestJS Client/Server Example">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/en-react-nestjs-sept-2026/introduction.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="chapter-1---setting-up-the-work-environment.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Introduction - A React/NestJS Client/Server Example</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "A React/NestJS Client/Server Example";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="A React/NestJS Client/Server Example" class="md-header__button md-logo" aria-label="A React/NestJS Client/Server Example" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A React/NestJS Client/Server Example
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/en-react-nestjs-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="A React/NestJS Client/Server Example" class="md-nav__button md-logo" aria-label="A React/NestJS Client/Server Example" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    A React/NestJS Client/Server Example
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/en-react-nestjs-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="introduction.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-a-step-by-step-reconstruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. A Step-by-Step Reconstruction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-who-this-document-is-intended-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Who This Document Is Intended For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-the-application-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. The Application Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-tools-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Tools Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-application-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. Application Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-what-has-changed-what-has-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6. What Has Changed, What Has Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-organization-of-this-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7. Organization of this document
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-1---setting-up-the-work-environment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Chapter 1 - Setting Up the Work Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-2---introduction-to-nestjs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Chapter 2 - Introduction to [NestJS]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-3---the-nestjs-server-for-the-rdvmedecins-application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Chapter 3 - The [NestJS] server for the [RdvMedecins] application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-4---introduction-to-react.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Chapter 4 - Introduction to [React]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-5---the-react-client-for-the-rdvmedecins-application.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Chapter 5 - The [React] client for the [RdvMedecins] application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="chapter-6--conclusion-and-next-steps.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Chapter 6—Conclusion and Next Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="introduction" name="introduction" class="odt-bookmark-anchor"></span></p>
+<h1 id="1-introduction">1. <span style="color: #2e74b5">Introduction</span></h1>
+<p>The document’s PDF is |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCUei0kAeRpQJmk9keME6EEAY397MicnYjSVfSrm-Uv0Ko?e=E5Ghdg">HERE</a>|.</p>
+<p>The document’s codes are |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQDGs9MGoCrGRqIAbn5onbGnAUpkv4keCyaDJQCSkVQf-ds?e=an2WYB">HERE</a>|.</p>
+<p>This document is a product of <strong>Anthropic’s IA Claude</strong>. Its purpose is to transpose the document [Un exemple de client / serveur - AngularJS 1.x / Spring 4 ] in two ways:</p>
+<ul>
+<li>the client AngularJS 1.x is replaced by a client <em><mark style="background-color: #fff5ce">[React]</mark></em> 19;</li>
+<li>the Java Spring web framework MVC is replaced by the web framework NestJS;</li>
+</ul>
+<p><strong>Claude from Anthropic</strong> (<strong>IA</strong>) did most of the work (90%):</p>
+<ul>
+<li><strong>code generation:</strong> Claude generated all of the code. I simply tested it by following the generated course;</li>
+<li><strong>Course generation in the ODT format:</strong> Claude generated several versions at my request. This is where I was primarily involved.</li>
+</ul>
+<p><strong>Note 1</strong>: If the reader’s primary goal is to “learn NestJS,” a simpler example is available in the [Introduction au langage TypeScript et au framework web NestJS par l’exemple ] document. The reader can then return to this document to understand the <strong>React</strong> client library.</p>
+<p><strong>Note 2</strong>: This document frequently refers to version <em><mark style="background-color: #fff5ce">[Angular] </mark></em>of this course. This refers to course <em><mark style="background-color: #fff5ce">[Un exemple de client / serveur - Angular / NestJS (2026)]</mark></em>;</p>
+<p><strong>Serge Tahé</strong>, September 2026</p>
+<p>==</p>
+<p>This document is a follow-up to the course <a href="https://stahe.github.io/spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">“A Client/Server Example - AngularJS 1.x / Spring 4</span></u></a>,<a href="https://stahe.github.io/spring-angular1.x-juillet-2014/"><u><span style="color: #0563c1">”</span></u></a> written in 2014. That original document built a small medical appointment scheduling application (“[RdvMedecins]”) using a <strong>Spring 4 / Spring Data / Spring MVC</strong> server and a <strong>AngularJS 1.x</strong> client.</p>
+<p>Twelve years later, the two frameworks used have evolved significantly—or have even been replaced in common use:</p>
+<ul>
+<li>on the server side, <strong>[NestJS]</strong> has established itself as one of the most widely used Node.js/TypeScript frameworks most widely used for building structured web applications, with a philosophy similar to that of Spring (modules, controllers, services, dependency injection) but within the JavaScript/TypeScript ecosystem;</li>
+<li>on the client side, <strong>AngularJS and 1.x</strong> were completely rewritten starting in 2016 under the name <strong>[Angular]</strong> (versions 2, 4, 5… up to version 22) - the approach taken by the <em><mark style="background-color: #fff5ce">[Angular] </mark></em>/ <em><mark style="background-color: #fff5ce">[NestJS] </mark></em>variant in this course. This document takes a different, more radical approach: <strong>[React]</strong> (created by Meta, 2013), an interface <strong>library</strong> rather than a complete framework, in which each component is a simple function JavaScript/TypeScript (see Chapter 4).</li>
+</ul>
+<p>The purpose of this document is to revisit the original case study—the same application, the same features, the same database—and to <strong>rebuild</strong> it <strong>using current tools</strong>, while maintaining, as much as possible, the same instructional progression as the 2014 document.</p>
+<p><span id="une-reconstruction-par-etapes" name="une-reconstruction-par-etapes" class="odt-bookmark-anchor"></span></p>
+<h2 id="11-a-step-by-step-reconstruction">1.1. <span style="color: #2e74b5">A Step-by-Step Reconstruction</span></h2>
+<p>The original document was about 300 pages long and covered, in addition to the application’s core functionality—role-based authentication (Spring Security)—twelve progressive examples for learning AngularJS 1.x step by step. Reconstructing all of this content at once would be both time-consuming and difficult to digest.</p>
+<p>This document therefore covers the <strong>first two steps</strong> of the reconstruction:</p>
+<ul>
+<li>the application’s general architecture (unchanged in principle);</li>
+<li>the database (unchanged, except for the addition of the <em><mark style="background-color: #fff5ce">[users]</mark></em> table);</li>
+<li>the complete <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server, with all features for viewing and booking/canceling appointments;</li>
+<li><strong>token-based authentication (JWT) and role-based access control</strong> (ADMIN/USER), equivalent to the Spring Security layer in the original document;</li>
+<li>the corresponding <em><mark style="background-color: #fff5ce">[React]</mark></em> client, with the same features, a login screen, a Bootstrap interface tailored to the logged-in user’s role, and the ability to switch the interface between French and English (<em><mark style="background-color: #fff5ce">[i18next]/[react-i18next]</mark></em>).</li>
+</ul>
+<p>Two features from the original document are not included in this document at this stage: the original client’s “debug” mode (display of the raw template for the current view), which has been <strong>deliberately</strong> omitted from this port (see Chapter 6 for the rationale behind this decision), and the configuration of an artificial network delay, which has been deferred to a later stage.</p>
+<p><span id="a-qui-sadresse-ce-document" name="a-qui-sadresse-ce-document" class="odt-bookmark-anchor"></span></p>
+<h2 id="12-who-this-document-is-intended-for">1.2. <span style="color: #2e74b5">Who This Document Is Intended For</span></h2>
+<p>This document assumes no prior knowledge of either <em><mark style="background-color: #fff5ce">[NestJS] </mark></em>or <em><mark style="background-color: #fff5ce">[React]</mark></em>. Each new concept (decorator, dependency injection, component, signal, etc.) is explained as it appears, in as much detail as possible—even for readers who have never written a single line of TypeScript.</p>
+<p>However, some basic knowledge is helpful for getting the most out of this document:</p>
+<ul>
+<li>a basic understanding of the JavaScript language (variables, functions, arrays, objects);</li>
+<li>a basic understanding of HTTP interactions in a web application (GET/POST methods, JSON format);</li>
+<li>common tags in the HTML language;</li>
+<li>using the command line (cd, npm install…).</li>
+</ul>
+<p>You do not need to be familiar with the <strong>TypeScript</strong> language (used on both the server and client sides) beforehand: it is a superset of JavaScript that adds a type system, which is explained throughout the document whenever it is used. Interested readers may consult the <em><mark style="background-color: #fff5ce">[Introduction au langage TypeScript et au framework NestJS (2026)]</mark></em> document, which explains TypeScript in detail.</p>
+<p><span id="larchitecture-de-lapplication" name="larchitecture-de-lapplication" class="odt-bookmark-anchor"></span></p>
+<h2 id="13-the-application-architecture">1.3. <span style="color: #2e74b5">The Application Architecture</span></h2>
+<p>The general architecture of the application has not changed since the original document:</p>
+<ul>
+<li>a web server delivers a single HTML/a unique CSS/JS page, containing a <em><mark style="background-color: #fff5ce">[React]</mark></em> application built on the <strong>Component</strong> model (view + associated logic), which relies on <strong>services</strong> to communicate with the server;</li>
+<li>the user interacts with the views displayed in the browser. The user’s actions sometimes require a request to the server <em><mark style="background-color: #fff5ce">[NestJS]</mark></em>, which processes the request and returns a response <strong>JSON</strong> (JavaScript Object Notation); this response is used to update the view presented to the user.</li>
+</ul>
+<p><span style="color: #000000">The application under consideration will have the following architecture:</span></p>
+<p><img src="images/100000000000037D000003046316BA59.png" width="447" height="386" style="width:11.815cm;height:10.213cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000037D000003046316BA59.png" /></p>
+<ul>
+<li><span style="color: #000000">In [1], the user of the </span><strong>[React]</strong><span style="color: #000000"> application queries the </span><em><mark style="background-color: #fff5ce">[présentation] and </mark></em><span style="color: #000000">[2] layers of that application;</span></li>
+<li><span style="color: #000000">to perform the action requested by the user, the </span><em><mark style="background-color: #fff5ce">[présentation] and </mark></em><span style="color: #000000">[2] layers may query the </span><em><mark style="background-color: #fff5ce">[Services] and </mark></em><span style="color: #000000">[3] layers;</span></li>
+<li><span style="color: #000000">To provide the requested service, the [3] layer may need to query [4], the remote server JSON implemented by </span><strong>[NestJS]</strong><span style="color: #000000">;</span></li>
+<li><span style="color: #000000">Depending on the request received in [5], the [6-8] layers may be queried;</span></li>
+<li><span style="color: #000000">the server’s response returns the [2-8] layers in reverse order;</span></li>
+<li><span style="color: #000000">the view displayed to the user, [1], reflects this response;</span></li>
+</ul>
+<p><strong>Note</strong><span style="color: #000000">: If you’re confused by the project’s architecture, refer back to this diagram. Note that SGBD is processed by the server, not by the client.</span></p>
+<p><span id="les-outils-utilises" name="les-outils-utilises" class="odt-bookmark-anchor"></span></p>
+<h2 id="14-tools-used">1.4. <span style="color: #2e74b5">Tools Used</span></h2>
+<p>This document uses the following tools (their installation is detailed in Chapter 2):</p>
+<ul>
+<li><strong>Node.js</strong> (version 22 or later) and its package manager <strong>npm</strong>—the equivalent, in the JavaScript ecosystem, of what Java + Maven were for the original Spring server;</li>
+<li><strong>Visual Studio Code</strong>, a free code editor, with its TypeScript extensions—the equivalent of Spring Tool Suite (STS) and WebStorm used in the original document;</li>
+<li><strong>[NestJS] CLI</strong> (<em><mark style="background-color: #fff5ce">[@nestjs/cli]</mark></em>), a command-line tool that generates the server project structure and launches its development server; On the client side, <strong>[Vite]</strong> requires no global installation—it can be used directly via npm on the project included with this document;</li>
+<li><strong>[MySQL] 8</strong> for the database (the original document used <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> 5—the relational schema itself remains unchanged);</li>
+<li><strong>Postman</strong> (or any other HTTP client), to test the server’s URL that respond to <strong>POST</strong> requests (/ajouterRv, /supprimerRv)—a browser can only test GET requests.</li>
+</ul>
+<p><span id="les-fonctionnalites-de-lapplication" name="les-fonctionnalites-de-lapplication" class="odt-bookmark-anchor"></span></p>
+<h2 id="15-application-features">1.5. <span style="color: #2e74b5">Application Features</span></h2>
+<p>The “business” features of the <em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em> application remain <strong>unchanged</strong> from the original document; access control, however, is slightly more robust than in the original (see the table below):</p>
+<ul>
+<li>A medical practice employs several doctors, each with their own consultation time slots;</li>
+<li>a user must log in (username/password) to access the application;</li>
+<li>Once logged in, the user can select a doctor and a day, and view the doctor’s schedule for that day: each time slot appears either available or booked;</li>
+<li>a user with the role <strong>ADMIN</strong> can also book an available time slot for a patient of their choice and cancel an existing appointment;</li>
+<li>A user with the role <strong>USER</strong> can view the schedules but cannot book or cancel (read-only access)—a deliberate difference from the original document, where the role USER was used solely to illustrate a denial of access and could not view anything at all (see Chapter 3, “Authentication” section, for the rationale behind this choice).</li>
+</ul>
+<p><img src="images/100000000000045F000004C3B4347F3A.png" width="336" height="365" style="width:8.879cm;height:9.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000045F000004C3B4347F3A.png" /></p>
+<p><span id="ce-qui-change-ce-qui-ne-change-pas" name="ce-qui-change-ce-qui-ne-change-pas" class="odt-bookmark-anchor"></span></p>
+<h2 id="16-what-has-changed-what-has-not">1.6. <span style="color: #2e74b5">What Has Changed, What Has Not</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Original document (2014)</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>This document (2026)</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Base de données
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><mark style="background-color: #fff5ce">[MySQL]</mark></i> 5, tables MEDECINS/CLIENTS/CRENEAUX/RV</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><mark style="background-color: #fff5ce">[MySQL]</mark></i> 8, <b>same tables</b>, same columns, same constraints</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Serveur
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Java, Spring 4, Spring Data (JPA/Hibernate), Spring MVC</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TypeScript, <b>[NestJS]</b>, <b>[TypeORM]</b>, same as URL</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Client
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">JavaScript, AngularJS, 1.x, Bower</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">TypeScript, <b>[React] 19 </b>(functional components, hooks), npm</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Style CSS
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Bootstrap 3</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Bootstrap 5</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Authentification
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Spring Security, HTTP Basic, roles in 3 tables; only ADMIN uses the application</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Passport/JWT (<i><mark style="background-color: #fff5ce">[@nestjs/passport]</mark></i>, <i><mark style="background-color: #fff5ce">[@nestjs/jwt]</mark></i>), a signed token presented with each request, roles in a single column, <b>ADMIN full access, and USER read-only</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Internationalisation FR/EN
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">angular-translate library</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><mark style="background-color: #fff5ce">[i18next] </mark></i>+ <i><mark style="background-color: #fff5ce">[react-i18next]</mark></i></div></td></tr></table>
+
+<p><span id="organisation-de-ce-document" name="organisation-de-ce-document" class="odt-bookmark-anchor"></span></p>
+<h2 id="17-organization-of-this-document">1.7. <span style="color: #2e74b5">Organization of this document</span></h2>
+<ol>
+<li><strong>Setting up the development environment</strong>—installing the tools, creating the database, and launching the server and client for the first time.</li>
+</ol>
+<ol start="2">
+  <li><b>Introduction to [NestJS]</b>—the basics of the framework (modules, controllers, providers), with a mini-project to get started.
+  </li>
+  <li><b>The [NestJS] server for the [RdvMedecins] application</b>—the database, the <i><mark style="background-color: #fff5ce">[TypeORM]</mark></i> entities, the DAO layer, the business layer, the web layer, and token-based authentication (JWT) and roles.
+  </li>
+  <li><b>Introduction to [React]</b>—the basics of the library (functional components, JSX, hooks, Context), with a review of concepts already covered on the <i><mark style="background-color: #fff5ce">[Angular]</mark></i> side.
+  </li>
+  <li><b>The [React] client for the [RdvMedecins] application</b>—the client architecture, each of its components (including the login screen), the Bootstrap interface, switching between French and English in the interface, and a step-by-step walkthrough of the complete application.
+  </li>
+  <li>Conclusion and Next Steps.
+  </li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        This tutorial, written by Anthropic’s AI <strong>Claude</strong> and reviewed by <strong>Serge Tahé</strong>, is made available to the public under the terms of the
+        <em>Creative Commons Attribution – No Commercial Use –
+        ShareAlike 3.0 Unported License</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/index.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-1---setting-up-the-work-environment.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-2---introduction-to-nestjs.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-3---the-nestjs-server-for-the-rdvmedecins-application.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-4---introduction-to-react.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-5---the-react-client-for-the-rdvmedecins-application.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/chapter-6--conclusion-and-next-steps.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/en-react-nestjs-sept-2026/introduction.html</loc>
+         <lastmod>2026-09-17</lastmod>
+    </url>
+</urlset>
