@@ -682,7 +682,7 @@
 <p><span id="la-place-de-nestjs-dans-une-application-web" name="la-place-de-nestjs-dans-une-application-web" class="odt-bookmark-anchor"></span></p>
 <h2 id="32-the-role-of-nestjs-in-a-web-application">3.2. <span style="color: #2e74b5">The role of [NestJS] in a web application</span></h2>
 <p><em><mark style="background-color: #fff5ce">[NestJS] </mark></em>is a Node.js framework written in TypeScript, designed to build the server-side of a web application —most often a API REST (JSON). It does not reinvent the HTTP protocol handling itself: by default, it relies on Express, a more rudimentary Node.js framework responsible for receiving raw HTTP requests and responding to them. <em><mark style="background-color: #fff5ce">[NestJS] </mark></em>sits on top of this, providing a code organization that neither Node.js nor Express imposes on their own: division into modules, controllers, and services; dependency injection; decorators…</p>
-<p>Its architecture is heavily inspired by <em><mark style="background-color: #fff5ce">[Angular] </mark></em>(decorators, modules, dependency injection)—a similarity that will serve us well in Chapter 4, when we encounter exactly the same concepts on the client side.</p>
+<p>Its architecture is heavily inspired by <em><mark style="background-color: #fff5ce">[Angular] </mark></em>(decorators, modules, dependency injection)—a similarity that readers of the [Angular] version of this course will find again on the client side.</p>
 <p><em><mark style="background-color: #fff5ce">[NestJS] </mark></em>is primarily designed to generate JSON responses: by default, whatever a controller method returns is automatically converted to JSON and sent to the client, without any special configuration.</p>
 <p><span id="le-modele-de-developpement-de-nestjs" name="le-modele-de-developpement-de-nestjs" class="odt-bookmark-anchor"></span></p>
 <h2 id="33-the-nestjs-development-model">3.3. <span style="color: #2e74b5">The [NestJS] Development Model</span></h2>
@@ -714,12 +714,12 @@
 <h3 id="341-the-service">3.4.1. <span style="color: #1f4d78">The service</span></h3>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-typescript">
 <span class="odt-code-line"><span class="odt-code-line-content"><span style="color: #8f08c4">// src/app.service.ts</span></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">import</span> { <span style="background-color:#fff5ce;color:#1f377f">Injectable</span> } <span style="color:#8f08c4">from</span> <span style="color:#a31515">&#x27;</span><span style="background-color:#fff5ce;color:#a31515">@nestjs/common</span><span style="color:#a31515">&#x27;</span>;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import { Injectable } from &#x27;@nestjs/common&#x27;;</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">@<span style="background-color:#fff5ce;color:#74531f">Injectable</span>()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">export</span> <span style="color:#0000ff">class</span> <span style="color:#2b91af">AppService</span> {</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#74531f">getHello</span>(): <span style="color:#2b91af">string</span> {</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#8f08c4">return</span> <span style="color:#a31515">&#x27;Hello World!&#x27;</span>;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">@Injectable()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">export class AppService {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  getHello(): string {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    return &#x27;Hello World!&#x27;;</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
 <span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
 </code></pre></div>
@@ -735,29 +735,38 @@
 
 <p><span id="le-controleur" name="le-controleur" class="odt-bookmark-anchor"></span></p>
 <h3 id="342-the-controller">3.4.2. <span style="color: #1f4d78">The controller</span></h3>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-typescript">
-<span class="odt-code-line"><span class="odt-code-line-content">// src/app.controller.ts</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff5ce;color:#8f08c4">import</span><span style="background-color:#fff5ce"> { </span><span style="background-color:#fff5ce;color:#1f377f">Controller</span><span style="background-color:#fff5ce">, </span><span style="background-color:#fff5ce;color:#1f377f">Get</span><span style="background-color:#fff5ce"> } </span><span style="background-color:#fff5ce;color:#8f08c4">from</span><span style="background-color:#fff5ce"> </span><span style="background-color:#fff5ce;color:#a31515">&#x27;@nestjs/common&#x27;</span>;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff5ce;color:#8f08c4">import</span><span style="background-color:#fff5ce"> { </span><span style="background-color:#fff5ce;color:#1f377f">AppService</span><span style="background-color:#fff5ce"> } </span><span style="background-color:#fff5ce;color:#8f08c4">from</span><span style="background-color:#fff5ce"> </span><span style="background-color:#fff5ce;color:#a31515">&#x27;./app.service.js&#x27;</span>;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">@<span style="background-color:#fff5ce;color:#74531f">Controller</span>()</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">export</span> <span style="color:#0000ff">class</span> <span style="color:#2b91af">AppController</span> {</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#0000ff">constructor</span>(<span style="color:#0000ff">private</span> <span style="color:#0000ff">readonly</span> <span style="background-color:#fff5ce;color:#1f377f">appService</span>: <span style="color:#2b91af">AppService</span>) { }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  @<span style="background-color:#fff5ce;color:#74531f">Get</span>(<span style="color:#a31515">&#x27;</span><span style="background-color:#fff5ce;color:#a31515">bonjour</span><span style="color:#a31515">&#x27;</span>)</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#74531f">getHello</span>(): <span style="color:#2b91af">string</span> {</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#8f08c4">return</span> <span style="color:#0000ff">this</span>.<span style="color:#1f377f">appService</span>.<span style="color:#74531f">getHello</span>();</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-</code></pre></div>
-
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// src/app.controller.ts</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./app.service.js'</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kd">@Controller</span><span class="p">()</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AppController</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">appService</span><span class="o">:</span><span class="w"> </span><span class="kt">AppService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="kd">@Get</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">  </span><span class="nx">getHello</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">appService</span><span class="p">.</span><span class="nx">getHello</span><span class="p">();</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <ul>
   <li>Line 5: <mark style="background-color: #fff5ce">@Controller</mark>() decorates the following class to make it a controller: NestJS will send it the HTTP requests corresponding to its routes. The argument in parentheses is an optional prefix added to the beginning of all the class’s routes—here it is empty: the “hello” route therefore responds directly to /hello;
   </li>
-  <li>line 7: the constructor declares a parameter <mark style="background-color: #fff5ce">appService </mark>of type <mark style="background-color: #fff5ce">[AppService]</mark>, preceded by the modifier TypeScript private <mark style="background-color: #fff5ce">readonly</mark>, which, in a single line, declares it as `ET` and registers it as a property of the instance (`this.appService`). <i><mark style="background-color: #fff5ce">[NestJS] </mark></i>determines that the controller needs a <i><mark style="background-color: #fff5ce">[AppService]</mark></i>, creates an instance of it (a single instance, shared by the entire application), and automatically provides it here: this is the constructor-based dependency injection mentioned earlier;
+  <li>line 7: the constructor declares a parameter <mark style="background-color: #fff5ce">appService </mark>of type <mark style="background-color: #fff5ce">[AppService]</mark>, preceded by the modifier TypeScript private <mark style="background-color: #fff5ce">readonly</mark>, which, in a single line, declares it and registers it as a property of the instance (`this.appService`). <i><mark style="background-color: #fff5ce">[NestJS] </mark></i>determines that the controller needs a <i><mark style="background-color: #fff5ce">[AppService]</mark></i>, creates an instance of it (a single instance, shared by the entire application), and automatically provides it here: this is the constructor-based dependency injection mentioned earlier;
   </li>
-  <li>Line 9: <mark style="background-color: #fff5ce">[@Get](&#x27;hello&#x27;) </mark>associates the following method with the route <mark style="background-color: #fff5ce">HTTP GET /hello</mark>: This decorator makes the action accessible at the testable address<mark style="background-color: #fff5ce"> http://localhost:3000/bonjour </mark>once the server is running. Other decorators serve the same purpose for the other HTTP verbs: <mark style="background-color: #fff5ce">@[Post]</mark>(), <mark style="background-color: #fff5ce">@Put</mark>(), <mark style="background-color: #fff5ce">@Delete</mark>(), <mark style="background-color: #fff5ce">@Patch</mark>() (we’ll use <mark style="background-color: #fff5ce">@[Post]</mark>() in the case study, for <mark style="background-color: #fff5ce">/ajouterRv </mark>and <mark style="background-color: #fff5ce">/supprimerRv</mark>). Note that on line 10, the method name <i><mark style="background-color: #fff5ce">[getHello] </mark></i>is irrelevant. It could be any name;
+  <li>Line 9: <mark style="background-color: #fff5ce">[@Get](&#x27;hello&#x27;) </mark>associates the following method with the route <mark style="background-color: #fff5ce">HTTP GET /hello</mark>: This decorator makes the action accessible at the testable address<mark style="background-color: #fff5ce"> http://localhost:3000/hello </mark>once the server is running. Other decorators serve the same purpose for the other HTTP verbs: <mark style="background-color: #fff5ce">@[Post]</mark>(), <mark style="background-color: #fff5ce">@Put</mark>(), <mark style="background-color: #fff5ce">@Delete</mark>(), <mark style="background-color: #fff5ce">@Patch</mark>() (we’ll use <mark style="background-color: #fff5ce">@[Post]</mark>() in the case study, for /addAppointment and /deleteAppointment). Note that on line 10, the method name <i><mark style="background-color: #fff5ce">[getHello] </mark></i>is irrelevant. It could be any name;
   </li>
   <li>line 11: the controller delegates the work to the injected service rather than coding the response itself: it remains a simple routing layer, while the business logic resides in the service—a principle we’ll see, on a larger scale, in the case study in Chapter 3.
   </li>
@@ -765,20 +774,28 @@
 
 <p><span id="le-module" name="le-module" class="odt-bookmark-anchor"></span></p>
 <h3 id="343-the-module">3.4.3. <span style="color: #1f4d78">The module</span></h3>
-<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-typescript">
-<span class="odt-code-line"><span class="odt-code-line-content">// src/app.module.ts</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">import</span> { <span style="color:#1f377f">Module</span> } <span style="color:#8f08c4">from</span> <span style="color:#a31515">&#x27;@nestjs/common&#x27;</span>;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">import</span> { <span style="color:#1f377f">AppController</span> } <span style="color:#8f08c4">from</span> <span style="color:#a31515">&#x27;./app.controller.js&#x27;</span>;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">import</span> { <span style="color:#1f377f">AppService</span> } <span style="color:#8f08c4">from</span> <span style="color:#a31515">&#x27;./app.service.js&#x27;</span>;</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">@<span style="background-color:#fff5ce;color:#74531f">Module</span>({</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#1f377f">imports</span>: [],</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#1f377f">controllers</span>: [<span style="color:#2b91af">AppController</span>],</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#1f377f">providers</span>: [<span style="color:#2b91af">AppService</span>],</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content">})</span></span>
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#8f08c4">export</span> <span style="color:#0000ff">class</span> <span style="color:#2b91af">AppModule</span> {}</span></span>
-</code></pre></div>
-
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// src/app.module.ts</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Module</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@nestjs/common'</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppController</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./app.controller.js'</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AppService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./app.service.js'</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kd">@Module</span><span class="p">({</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="nx">controllers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">AppController</span><span class="p">],</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">AppService</span><span class="p">],</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">})</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AppModule</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></td></tr></table></div>
 <ul>
   <li>line 6: <mark style="background-color: #fff5ce">@[Module]</mark>({...}) decorates the following class to turn it into a module: it groups a coherent part of the application and declares, in the object passed as an argument, what comprises it. Four properties are possible: <mark style="background-color: #fff5ce">controllers </mark>(the controllers exposed by this module), <mark style="background-color: #fff5ce">providers </mark>(the services provided by this module, available for injection within the module), <mark style="background-color: #fff5ce">imports </mark>(the other modules on which this one depends), and <mark style="background-color: #fff5ce">exports </mark>(the providers that this module makes available to modules that import it);
   </li>
@@ -789,28 +806,33 @@
 <p><span id="execution" name="execution" class="odt-bookmark-anchor"></span></p>
 <h3 id="344-execution">3.4.4. <span style="color: #1f4d78">Execution</span></h3>
 <p>With VSCode, in a terminal launched at the root of the <em><mark style="background-color: #fff5ce">[hello-nest]</mark></em> folder, type the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm run start:dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm run start:dev
 </code></pre></div>
-<p>When you open<mark style="background-color: #fff5ce"> http://localhost:3000/bonjour </mark>in a browser, you get the following response:</p>
+<p>When you open<mark style="background-color: #fff5ce"> http://localhost:3000/hello </mark>in a browser, you get the following response:</p>
 <p><img src="images/10000000000002880000014984146B6D.png" width="324" height="165" style="width:8.573cm;height:4.353cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002880000014984146B6D.png" /></p>
 <p><span id="les-providers-et-linjection-de-dependances" name="les-providers-et-linjection-de-dependances" class="odt-bookmark-anchor"></span></p>
 <h2 id="35-providers-and-dependency-injection">3.5. <span style="color: #2e74b5">Providers and Dependency Injection</span></h2>
 <p>A class annotated with <mark style="background-color: #fff5ce">@[Injectable]</mark>() is a provider: <em><mark style="background-color: #fff5ce">[NestJS] </mark></em>knows how to instantiate it and automatically inject it wherever it is requested in a constructor, provided it appears in a module’s providers array. By default, a <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> provider is a <strong>singleton</strong>: a single instance is created when the application starts, and that same instance is shared by all components that need it—an important point for understanding the role of the <em><mark style="background-color: #fff5ce">[ApplicationModelService]</mark></em> service in the case study (Chapter 3), which caches data when the server starts.</p>
 <p><span id="les-autres-decorateurs-quon-retrouvera-dans-letude-de-cas" name="les-autres-decorateurs-quon-retrouvera-dans-letude-de-cas" class="odt-bookmark-anchor"></span></p>
 <h2 id="36-the-other-decorators-that-will-appear-in-the-case-study">3.6. <span style="color: #2e74b5">The other decorators that will appear in the case study</span></h2>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Décorateur</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Rôle</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;background-color:#fff5ce">[@Get]</span>(url), <span style="font-style:italic;background-color:#fff5ce">[@Post]</span>(url)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">associates a controller method with a route HTTP</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;background-color:#fff5ce">[@Param]</span>(&#x27;x&#x27;)</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">retrieves a variable segment from URL, e.g., /getMedecinById/:id</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;background-color:#fff5ce">[@Body]</span>()</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">retrieves the body JSON of a request POST, deserialized into a class</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;background-color:#fff5ce">[@Injectable]</span>()</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">declares a provider (service, DAO…)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
-<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-style:italic;background-color:#fff5ce">[@Module]</span>({...})</span></span>
-</code></pre></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">declares a module, an assembly of controllers and providers</div></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Decorator</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>Role</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[@Get](url), [@Post](url)
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">associates a controller method with a route HTTP</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[@Param]('x')
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">retrieves a variable segment from URL, e.g., /getDoctorById/:id</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[@Body]()
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">retrieves the body JSON of a request POST, deserialized into a class</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[@Injectable]()
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">declares a provider (service, DAO…)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[@Module]({...})
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">declares a module, an assembly of controllers and providers</div></td></tr></table>
 
-<p>These decorators will be explained in detail, one by one, at the exact location where they appear in the code of the <em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em> server (Chapter 4).</p>
+<p>These decorators will be explained in detail, one by one, at the exact location where they appear in the code of the <em><mark style="background-color: #fff5ce">[RdvMedecins]</mark></em> server (Chapter 3).</p>
 
 
 

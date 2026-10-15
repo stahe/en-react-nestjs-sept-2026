@@ -646,11 +646,11 @@
   </li>
 </ul>
 
-<p>The core of the database has not changed (same tables <em><mark style="background-color: #fff5ce">[medecins/clients/creneaux/rv]</mark></em>, same constraints), except for the addition of the table <em><mark style="background-color: #fff5ce">[users]</mark></em>; nor has the general layered architecture—only the tools that implement it have been updated.</p>
+<p>The core of the database has not changed (same tables <em><mark style="background-color: #fff5ce">[doctors/clients/slots/appointments]</mark></em>, same constraints), except for the addition of the table <em><mark style="background-color: #fff5ce">[users]</mark></em>; nor has the general layered architecture—only the tools that implement it have been updated.</p>
 <p>There are two intentional differences from the authentication method in the original document, documented in detail in Chapter 3: a <strong>JWT</strong> token rather than the HTTP Basic header sent with each request, and a single <em><mark style="background-color: #fff5ce">[role]</mark></em> column per user rather than a many-to-many relationship across three tables. A third difference—this one functional—was deliberately chosen for this port: the USER role can now view calendars (read-only), whereas in the original it served only to illustrate a total denial of access.</p>
 <p><span id="ce-qui-reste-hors-perimetre-ou-a-porter" name="ce-qui-reste-hors-perimetre-ou-a-porter" class="odt-bookmark-anchor"></span></p>
 <h2 id="72-what-remains-outside-the-scope-or-to-be-ported">7.2. <span style="color: #2e74b5">What Remains Outside the Scope or to Be Ported</span></h2>
-<p>Beyond the above, the original document covered two additional topics—one of which has now been addressed, another deliberately left out, and the third deferred to a later stage:</p>
+<p>Beyond the above, the original document covered three additional topics—one of which has now been addressed, another deliberately left out, and the third deferred to a later stage:</p>
 <p><span id="linternationalisation-francaisanglais---traitee-dans-ce-document" name="linternationalisation-francaisanglais---traitee-dans-ce-document" class="odt-bookmark-anchor"></span></p>
 <h3 id="721-frenchenglish-localizationaddressed-in-this-document">7.2.1. <span style="color: #1f4d78">French/English localization—addressed in this document</span></h3>
 <p>The original document proposed switching the interface between French and English using the <em><mark style="background-color: #fff5ce">[angular-translate]</mark></em> library. This port implements this functionality using its equivalent in the current <em><mark style="background-color: #fff5ce">[React]</mark></em> ecosystem, <em><mark style="background-color: #fff5ce">[i18next] </mark></em>(along with <em><mark style="background-color: #fff5ce">[react-i18next]</mark></em>, which loads the dictionaries fr.json/en.json with HTTP from the <em><mark style="background-color: #fff5ce">[public/i18n/]</mark></em> folder)—see Chapter 5. Like <em><mark style="background-color: #fff5ce">[angular-translate] </mark></em>before it, <em><mark style="background-color: #fff5ce">[i18next] </mark></em>allows you to switch languages on the fly, without reloading the page—a behavior faithful to that of the original document.</p>
@@ -667,7 +667,7 @@
 <h2 id="74-to-get-started-right-away">7.4. <span style="color: #2e74b5">To Get Started Right Away</span></h2>
 <p>While waiting for the next steps in this port, the server and client included with this document provide a ready-to-use foundation for you to experiment on your own:</p>
 <ul>
-  <li>add a new doctor or a new patient (currently, this can only be done by modifying the SQL script—a route named /ajouterMedecin, also protected by <i><mark style="background-color: #fff5ce">[@Roles]</mark></i>(&#x27;ADMIN&#x27;), could be a good first exercise);
+  <li>add a new doctor or a new patient (currently, this can only be done by modifying the SQL script—a route named /addDoctor, also protected by <i><mark style="background-color: #fff5ce">[@Roles]</mark></i>(&#x27;ADMIN&#x27;), could be a good first exercise);
   </li>
   <li>add a third role, or a user with multiple roles—an opportunity to assess, in very concrete terms, the cost of abandoning the single-column simplification <i><mark style="background-color: #fff5ce">[role] </mark></i>(see Chapter 3);
   </li>

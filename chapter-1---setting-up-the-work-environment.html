@@ -470,10 +470,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#253-test-the-post-routes-ajouterrv-supprimerrv" class="md-nav__link">
+  <a href="#253-test-the-post-routes-addappointment-deleteappointment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.5.3. Test the POST routes (/ajouterRv, /supprimerRv)
+        2.5.3. Test the POST routes (/addAppointment, /deleteAppointment)
       
     </span>
   </a>
@@ -702,24 +702,24 @@
 <p><img src="images/10000000000002530000028174CA6D63.png" width="298" height="321" style="width:7.872cm;height:8.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002530000028174CA6D63.png" /></p>
 <p><span id="creer-la-base-de-donnees" name="creer-la-base-de-donnees" class="odt-bookmark-anchor"></span></p>
 <h2 id="22-create-the-database">2.2. <span style="color: #2e74b5">Create the database</span></h2>
-<p>To create the [MySQL] database used by the [NestJS] server, we will use the Laragon tool. As of September 2026, Laragon is available at URL [Download Laragon – Fast &amp; Modern Dev Environment ]. Laragon includes tools that allow you to install a PHP server and the SGBD and [MySQL] servers:</p>
+<p>To create the [MySQL] database used by the [NestJS] server, we will use the Laragon tool. As of September 2026, Laragon is available at URL [Download Laragon – Fast &amp; Modern Dev Environment ]. Laragon includes tools that allow you to install a PHP server and the [MySQL] DBMS server:</p>
 <p><img src="images/10000000000006440000030C86481A8B.png" width="643" height="312" style="width:17cm;height:8.266cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C86481A8B.png" /></p>
 <ul>
   <li>in [1], an Apache web server;
   </li>
-  <li>into [2], the SGBD and <i><mark style="background-color: #fff5ce">[MySQL]</mark></i>;
+  <li>into [2], the [MySQL] DBMS;
   </li>
   <li>to [3], a messaging tool that we will not be using;
   </li>
   <li>[4] starts all services (Apache, <i><mark style="background-color: #fff5ce">[MySQL]</mark></i>, MailPit);
   </li>
-  <li>[5] displays the web page for URL and <i><mark style="background-color: #fff5ce">[http://localhost]</mark></i>. By default, this URL refers to the &lt;laragon-install&gt;\www folder, where &lt;laragon-install&gt; is the Laragon installation folder;
+  <li>[5] displays the web page for URL [http://localhost]. By default, this URL refers to the &lt;laragon-install&gt;\www folder, where &lt;laragon-install&gt; is the Laragon installation folder;
   </li>
-  <li>in [6], launches the HeidiSQL tool, which allows you to manage MySQL databases. We will use this tool to create the database used by the tax calculation server;
+  <li>in [6], launches the HeidiSQL tool, which allows you to manage MySQL databases. We will use this tool to create the database used by the [NestJS] server;
   </li>
   <li>In [7], open a terminal; all the binaries needed for Laragon are located in PATH;
   </li>
-  <li>In [8], open a Windows Explorer window in the folder associated with URL and <i><mark style="background-color: #fff5ce">[http://localhost]</mark></i>;
+  <li>In [8], open a Windows Explorer window in the folder associated with URL [http://localhost];
   </li>
 </ul>
 
@@ -744,7 +744,7 @@
   </li>
   <li>[5], a mail manager;
   </li>
-  <li>in [6], the SGBD and <i><mark style="background-color: #fff5ce">[MySQL]</mark></i>;
+  <li>in [6], the [MySQL] DBMS;
   </li>
   <li>[7], another web server;
   </li>
@@ -760,7 +760,7 @@
   </li>
 </ul>
 
-<p>Laragon comes with a comprehensive development environment. In this course, we will use only SGBD, <em><mark style="background-color: #fff5ce">[MySQL], </mark></em>[6], and <em><mark style="background-color: #fff5ce">[heidisql] </mark></em>to manage it graphically;</p>
+<p>Laragon comes with a comprehensive development environment. In this course, we will use only the [MySQL] DBMS [6] and [heidisql]<em><mark style="background-color: #fff5ce"> </mark></em>to manage it graphically;</p>
 <p>To create the <em><mark style="background-color: #fff5ce">[MySQL]</mark></em> database required by the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server, proceed as follows:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006440000030C352A3F89.png" width="503" height="244" style="display:inline-block; margin:4px;width:13.301cm;height:6.468cm;" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C352A3F89.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
 
@@ -775,7 +775,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008D2000003C91FBD37B4.png" width="621" height="266" style="display:inline-block; margin:4px;width:16.431cm;height:7.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000008D2000003C91FBD37B4.png" /></td></tr></table>
 
 <ul>
-  <li>In [1], you can select various SGBD options. The default value provided is SGBD MySQL. This is acceptable;
+  <li>In [1], you can select various DBMS options. The default value provided is MySQL. This is acceptable;
   </li>
   <li>in [2], you log in to HeidiSQL;
   </li>
@@ -784,7 +784,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003FD0000018A35CBA47C.png" width="357" height="138" style="display:inline-block; margin:4px;width:9.449cm;height:3.649cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FD0000018A35CBA47C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A4000001C70316A390.png" width="237" height="159" style="display:inline-block; margin:4px;width:6.26cm;height:4.21cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A4000001C70316A390.png" /></td></tr></table>
 
 <ul>
-  <li>In [1-2], run the SQL file, then select the <i><mark style="background-color: #fff5ce">[dbrdvmedecins.sql]</mark></i> file, which you’ll find in the <i><mark style="background-color: #fff5ce">[nestjs-etude-de-cas]</mark></i> folder:
+  <li>In [1-2], run the SQL file, then select the <i><mark style="background-color: #fff5ce">[dbrdvmedecins.sql]</mark></i> file, which you’ll find in the <i><mark style="background-color: #fff5ce">[rdvmedecins-nestjs-server/database]</mark></i> folder:
   </li>
 </ul>
 
@@ -800,7 +800,7 @@
       </li>
       <li><i><mark style="background-color: #fff5ce">[version] </mark></i>is the row’s version number. This number increments each time the row is modified;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[titre, nom, prenom] </mark></i>identifies the person;
+      <li><i><mark style="background-color: #fff5ce">[title, last_name, first_name] </mark></i>identifies the person;
       </li>
     </ul>
   </li>
@@ -808,13 +808,13 @@
 
 <p><img src="images/100000000000052A0000026BD3179386.png" width="602" height="282" style="width:15.921cm;height:7.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052A0000026BD3179386.png" /></p>
 <ul>
-  <li>in [1-3], the table <i><mark style="background-color: #fff5ce">[medecins]</mark></i>;
+  <li>in [1-3], the table <i><mark style="background-color: #fff5ce">[doctors]</mark></i>;
     <ul>
       <li><i><mark style="background-color: #fff5ce">[id] </mark></i>is the primary key of the table;
       </li>
       <li><i><mark style="background-color: #fff5ce">[version] </mark></i>is the version number of the row;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[titre, nom, prenom] </mark></i>identifies the person;
+      <li><i><mark style="background-color: #fff5ce">[title, last_name, first_name] </mark></i>identifies the person;
       </li>
     </ul>
   </li>
@@ -822,17 +822,17 @@
 
 <p><img src="images/10000000000005FE000002C6FB6943F4.png" width="602" height="278" style="width:15.921cm;height:7.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000002C6FB6943F4.png" /></p>
 <ul>
-  <li>In [1-3], the table of doctors’ appointment time slots:
+  <li>In [1-3], the table [slots] of doctors’ appointment time slots:
     <ul>
       <li><i><mark style="background-color: #fff5ce">[id]</mark></i>: primary key;
       </li>
       <li><i><mark style="background-color: #fff5ce">[version]</mark></i>: row version number;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[id-medecin]</mark></i>: foreign key referencing the doctor’s primary key;
+      <li><i><mark style="background-color: #fff5ce">[doctor_id]</mark></i>: foreign key referencing the doctor’s primary key;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[hdebut, mdebut]</mark></i>: hour and minutes of the appointment start time. Thus, <i><mark style="background-color: #fff5ce">[8,20] </mark></i>means 8:20 a.m.
+      <li><i><mark style="background-color: #fff5ce">[start_hour, start_minute]</mark></i>: hour and minutes of the appointment start time. Thus, <i><mark style="background-color: #fff5ce">[8,20] </mark></i>means 8:20 a.m.
       </li>
-      <li><i><mark style="background-color: #fff5ce">[hfin, mfin]</mark></i>: hour and minutes of the end of the consultation. 
+      <li><i><mark style="background-color: #fff5ce">[end_hour, end_minute]</mark></i>: hour and minutes of the end of the consultation. 
       </li>
     </ul>
   </li>
@@ -840,17 +840,17 @@
 
 <p><img src="images/10000000000005EB0000024E23D6EF19.png" width="602" height="234" style="width:15.921cm;height:6.198cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EB0000024E23D6EF19.png" /></p>
 <ul>
-  <li>In [1-3], the <i><mark style="background-color: #fff5ce">[rv]</mark></i> table of scheduled appointments;
+  <li>In [1-3], the <i><mark style="background-color: #fff5ce">[appointments]</mark></i> table of scheduled appointments;
     <ul>
       <li><i><mark style="background-color: #fff5ce">[id]</mark></i>: primary key;
       </li>
       <li><i><mark style="background-color: #fff5ce">[version]</mark></i>: version number;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[jour]</mark></i>: appointment date;
+      <li><i><mark style="background-color: #fff5ce">[day]</mark></i>: appointment date;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[id_creneau]</mark></i>: foreign key referencing the primary key of the appointment time slot. Since a time slot is linked to a doctor, we know which doctor is handling this appointment;
+      <li><i><mark style="background-color: #fff5ce">[slot_id]</mark></i>: foreign key referencing the primary key of the appointment time slot. Since a time slot is linked to a doctor, we know which doctor is handling this appointment;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[id_client]</mark></i>: foreign key to the number (primary key) of the patient attending the appointment;
+      <li><i><mark style="background-color: #fff5ce">[client_id]</mark></i>: foreign key to the number (primary key) of the patient attending the appointment;
       </li>
     </ul>
   </li>
@@ -864,7 +864,7 @@
       </li>
       <li><i><mark style="background-color: #fff5ce">[login, password]</mark></i>: user credentials;
       </li>
-      <li><i><mark style="background-color: #fff5ce">[nom]</mark></i>: user name;
+      <li><i><mark style="background-color: #fff5ce">[name]</mark></i>: user name;
       </li>
       <li><i><mark style="background-color: #fff5ce">[role]</mark></i>: the user’s role. <i><mark style="background-color: #fff5ce">[ADMIN] </mark></i>has full access rights. <i><mark style="background-color: #fff5ce">[USER] </mark></i>has read-only access. This user can view a doctor’s schedule but cannot schedule or cancel an appointment;
       </li>
@@ -911,32 +911,32 @@
 <span class="normal"><a href="#__codelineno-3-29">29</a></span>
 <span class="normal"><a href="#__codelineno-3-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># -----------------------------------------------------------------------</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1"># Sample configuration file.</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Copy this file to [.env], then adjust the values for your machine.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Copy this file to [.env] then adapt the values to your machine.</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># The [.env] file must never be shared or committed (passwords).</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># -----------------------------------------------------------------------</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># listening port for the NestJS server (the original Spring server listened on port 8080)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># listening port of the NestJS server (the original Spring server listened on 8080)</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="na">PORT</span><span class="o">=</span><span class="s">8080</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Database connection parameters for MySQL and [dbrdvmedecins]</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># connection parameters for the MySQL database [dbrdvmedecins]</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="na">DB_HOST</span><span class="o">=</span><span class="s">localhost</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="na">DB_PORT</span><span class="o">=</span><span class="s">3306</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="na">DB_USERNAME</span><span class="o">=</span><span class="s">root</span>
 <a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="na">DB_PASSWORD</span><span class="o">=</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="na">DB_DATABASE</span><span class="o">=</span><span class="s">dbrdvmedecins</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1"># for development only: TypeORM can automatically create/update</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="c1"># tables from entities. We disable this here because we provide our</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="c1"># own script SQL [database/dbrdvmedecins.sql], just as the original Spring project did.</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1"># in development only: TypeORM can automatically create/update</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="c1"># the tables from the entities. It is disabled here because we provide our</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="c1"># own SQL script [database/dbrdvmedecins.sql], as the original Spring project did.</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="na">DB_SYNCHRONIZE</span><span class="o">=</span><span class="s">false</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21"></a>
 <a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="c1"># -----------------------------------------------------------------------</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1"># authentication (see src/auth/)</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="c1"># -----------------------------------------------------------------------</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="c1"># secret key used to sign/verify tokens JWT - to be changed</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="c1"># must be changed in production (a long random string, never committed).</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="na">JWT_SECRET</span><span class="o">=</span><span class="s">change-moi-en-une-longue-chaine-aleatoire</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="c1"># validity period of a JWT token (see the [ms] library documentation:</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="c1"># secret key used to sign/verify JWT tokens - MUST be changed</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="c1"># in production (a long random string, never committed).</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="na">JWT_SECRET</span><span class="o">=</span><span class="s">change-me-to-a-long-random-string</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="c1"># validity of a JWT token (see the documentation of the [ms] library:</span>
 <a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="c1"># "60", "2h", "7d"...)</span>
 <a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="na">JWT_EXPIRES_IN</span><span class="o">=</span><span class="s">2h</span>
 </code></pre></div></td></tr></table></div>
@@ -961,28 +961,28 @@
 <span class="normal"><a href="#__codelineno-5-13">13</a></span>
 <span class="normal"><a href="#__codelineno-5-14">14</a></span>
 <span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[Nest] RoutesResolver AuthController {/}:
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[Nest] RouterExplorer Mapped {/login, POST} route
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>[Nest] RoutesResolver RdvMedecinsController {/}:
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>[Nest] RouterExplorer Mapped {/getAllMedecins, GET} route
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>[Nest] RouterExplorer Mapped {/getAllClients, GET} route
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>[Nest] RouterExplorer Mapped {/getAllCreneaux/:idMedecin, GET} route
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>[Nest] RouterExplorer Mapped {/getRvMedecinJour/:idMedecin/:jour, GET} route
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>[Nest] RouterExplorer Mapped {/getAgendaMedecinJour/:idMedecin/:jour, GET} route
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>[Nest] RouterExplorer Mapped {/getMedecinById/:id, GET} route
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>[Nest] RouterExplorer Mapped {/getClientById/:id, GET} route
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>[Nest] RouterExplorer Mapped {/getCreneauById/:id, GET} route
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>[Nest] RouterExplorer Mapped {/getRvById/:id, GET} route
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>[Nest] RouterExplorer Mapped {/ajouterRv, POST} route
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a>[Nest] RouterExplorer Mapped {/supprimerRv, POST} route
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[Nest] RoutesResolver RdvMedecinsController {/}:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[Nest] RouterExplorer Mapped {/getAllDoctors, GET} route
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>[Nest] RouterExplorer Mapped {/getAllClients, GET} route
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>[Nest] RouterExplorer Mapped {/getAllSlots/:doctorId, GET} route
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>[Nest] RouterExplorer Mapped {/getDoctorAppointmentsOfDay/:doctorId/:day, GET} route
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>[Nest] RouterExplorer Mapped {/getDoctorScheduleOfDay/:doctorId/:day, GET} route
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>[Nest] RouterExplorer Mapped {/getDoctorById/:id, GET} route
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>[Nest] RouterExplorer Mapped {/getClientById/:id, GET} route
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>[Nest] RouterExplorer Mapped {/getSlotById/:id, GET} route
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>[Nest] RouterExplorer Mapped {/getAppointmentById/:id, GET} route
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>[Nest] RouterExplorer Mapped {/addAppointment, POST} route
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>[Nest] RouterExplorer Mapped {/deleteAppointment, POST} route
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>[Nest] RoutesResolver AuthController {/}:
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>[Nest] RouterExplorer Mapped {/login, POST} route
 <a id="__codelineno-5-15" name="__codelineno-5-15"></a>[Nest] NestApplication Nest application successfully started
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a>[RdvMedecins] serveur NestJS démarré sur http://localhost:8080
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>[RdvMedecins] NestJS server started on http://localhost:8080
 </code></pre></div></td></tr></table></div>
 <p>This console output confirms that the server is indeed listening on port 8080—<strong>exactly the same port as the Spring Boot server in the original document</strong>, which was deliberately chosen for this reason.</p>
 <p><span id="tester-le-serveur-avec-un-navigateur" name="tester-le-serveur-avec-un-navigateur" class="odt-bookmark-anchor"></span></p>
 <h2 id="24-testing-the-server-with-a-browser">2.4. <span style="color: #2e74b5">Testing the Server with a Browser</span></h2>
 <p>Since authentication was added (Chapter 3), <strong>all</strong> routes in <em><mark style="background-color: #fff5ce">[RdvMedecinsController] </mark></em>require a valid JWT token: therefore, a browser alone can no longer be used to test them directly. For example:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>http://localhost:[8080/getAllMedecins]
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>http://localhost:[8080/getAllDoctors]
 </code></pre></div></td></tr></table></div>
 <p>now returns a 401 Unauthorized error without a token:</p>
 <p><img src="images/100000000000048A000001AAB838806D.png" width="581" height="213" style="width:15.372cm;height:5.636cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048A000001AAB838806D.png" /></p>
@@ -1001,7 +1001,7 @@
 <p><span id="se-connecter-et-obtenir-un-jeton" name="se-connecter-et-obtenir-un-jeton" class="odt-bookmark-anchor"></span></p>
 <h3 id="251-log-in-and-obtain-a-token">2.5.1. <span style="color: #1f4d78">Log in and obtain a token</span></h3>
 <ol>
-  <li>Create a new Postman request with the method <b>POST</b>, URL<mark style="background-color: #fff5ce">http://localhost:8080/login</mark>;
+  <li>Create a new Postman request with the method <b>POST</b>, URL http<mark style="background-color: #fff5ce">://localhost:8080/login</mark>;
   </li>
   <li>In the <b>[Body]</b> tab, select &quot;<b>raw</b>,&quot; then the <b>JSON</b> format, and enter: {<mark style="background-color: #fff5ce">&quot;login&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;admin&quot;</mark>} (or &quot;user/user&quot; to test the USER role);
   </li>
@@ -1024,7 +1024,7 @@
 <p>Copy the value from accessToken: this is the token you must now include in every subsequent request. In the example above, the token to copy is “eyJ...zoM” (without the quotes).</p>
 <p><span id="appeler-une-route-protegee-avec-le-jeton" name="appeler-une-route-protegee-avec-le-jeton" class="odt-bookmark-anchor"></span></p>
 <h3 id="252-calling-a-protected-route-with-the-token">2.5.2. <span style="color: #1f4d78">Calling a protected route with the token</span></h3>
-<p>For <mark style="background-color: #fff5ce">GET /getAllMedecins </mark>(or any other route starting with RdvMedecinsController), in Postman, on the <strong>Authorization</strong> tab, select the <strong>Bearer Token</strong> type and paste the token copied above (Postman will then automatically add the Authorization: Bearer &lt;token&gt; header).</p>
+<p>For <mark style="background-color: #fff5ce">GET /getAllDoctors </mark>(or any other route starting with RdvMedecinsController), in Postman, on the <strong>Authorization</strong> tab, select the <strong>Bearer Token</strong> type and paste the token copied above (Postman will then automatically add the Authorization: Bearer &lt;token&gt; header).</p>
 <p><img src="images/10000000000005590000054A64AFF51E.png" width="602" height="595" style="width:15.921cm;height:15.744cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005590000054A64AFF51E.png" /></p>
 <ul>
   <li>in [1-2], the request sent to the server. It requests the list of doctors in the database;
@@ -1036,7 +1036,7 @@
 </ul>
 
 <p><span id="tester-les-routes-post-ajouterrv-supprimerrv" name="tester-les-routes-post-ajouterrv-supprimerrv" class="odt-bookmark-anchor"></span></p>
-<h3 id="253-test-the-post-routes-ajouterrv-supprimerrv">2.5.3. <span style="color: #1f4d78">Test the POST routes (/ajouterRv, /supprimerRv)</span></h3>
+<h3 id="253-test-the-post-routes-addappointment-deleteappointment">2.5.3. <span style="color: #1f4d78">Test the POST routes (/addAppointment, /deleteAppointment)</span></h3>
 <p>Follow the same procedure as above (method POST, body JSON, Bearer Token), exactly as the original document used the Chrome extension “Advanced Rest [Client]” for the same routes.</p>
 <p><strong>Note</strong>: You can find the following Postman requests in the <em><mark style="background-color: #fff5ce">[rdvmedecins-nestJS.postman_collection.json]</mark></em> collection:</p>
 <p><img src="images/100000000000029C0000030B2B251723.png" width="334" height="390" style="width:8.837cm;height:10.306cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029C0000030B2B251723.png" /></p>
@@ -1048,13 +1048,13 @@
 </ul>
 
 <p><img src="images/10000000000003FC00000334CABD0B35.png" width="510" height="410" style="width:13.494cm;height:10.848cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003FC00000334CABD0B35.png" /></p>
-<p>To test <mark style="background-color: #fff5ce">/ajouterRv </mark>with the token from an account <strong>ADMIN</strong>:</p>
+<p>To test <mark style="background-color: #fff5ce">/addAppointment </mark>with the token from an account <strong>ADMIN</strong>:</p>
 <ol>
-  <li>Postman request, method <b>POST</b>, URLhttp://localhost:8080/ajouterRv;
+  <li>Postman request, method <b>POST</b>, URL http://localhost:8080/addAppointment;
   </li>
   <li><b>Authorization</b> tab: Bearer Token, admin token;
   </li>
-  <li><b>[Body]</b> tab, raw, JSON: {&quot;day&quot;: &quot;2026-09-13&quot;, &quot;idClient&quot;: 1, &quot;idCreneau&quot;: 5};
+  <li><b>[Body]</b> tab, raw, JSON: {&quot;day&quot;: &quot;2026-09-13&quot;, &quot;clientId&quot;: 1, &quot;slotId&quot;: 5};
   </li>
   <li>Submit the request.
   </li>
@@ -1063,7 +1063,7 @@
 <p><img src="images/100000000000058A00000529ABEBAFF4.png" width="602" height="561" style="width:15.921cm;height:14.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058A00000529ABEBAFF4.png" /></p>
 <p>You can verify with HeidiSQL that an appointment has been added to the database:</p>
 <p><img src="images/10000000000006A400000266AF435029.png" width="602" height="218" style="width:15.921cm;height:5.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006A400000266AF435029.png" /></p>
-<p>To test <mark style="background-color: #fff5ce">/supprimerRv</mark>, follow the same procedure with the body {&quot;idRv&quot;: 2} (the ID of the appointment to be canceled (8) above).</p>
+<p>To test <mark style="background-color: #fff5ce">/deleteAppointment</mark>, follow the same procedure with the body {&quot;appointmentId&quot;: 2} (the ID of the appointment to be canceled (8) above).</p>
 <p><img src="images/100000000000058D0000034C0DB83F3D.png" width="602" height="357" style="width:15.921cm;height:9.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D0000034C0DB83F3D.png" /></p>
 <ul>
   <li>in [4], where the number above is the appointment to be deleted;
@@ -1084,7 +1084,7 @@
   </li>
 </ul>
 
-<p><strong>Try this</strong>: repeat the same request /ajouterRv using the token for the <strong>USER</strong> account (user/user) instead of the admin token: the response becomes 403 Forbidden, with the message “The role <em><mark style="background-color: #fff5ce">[USER] </mark></em>does not allow this action (required role: ADMIN)”—a concrete demonstration of the role-based access control implemented in Chapter 3.</p>
+<p><strong>Try this</strong>: repeat the same request /addAppointment using the token for the <strong>USER</strong> account (user/user) instead of the admin token: the response becomes 403 Forbidden, with the message “role [USER] does not allow this action (required role: ADMIN)”—a concrete demonstration of the role-based access control implemented in Chapter 3.</p>
 <p><span id="lancer-le-client-react-pour-la-premiere-fois" name="lancer-le-client-react-pour-la-premiere-fois" class="odt-bookmark-anchor"></span></p>
 <h2 id="26-launch-the-react-client-for-the-first-time">2.6. <span style="color: #2e74b5">Launch the [React] client for the first time</span></h2>
 <p>In the rdvmedecins-react-client folder (the <em><mark style="background-color: #fff5ce">[NestJS]</mark></em> server must be started beforehand):</p>
@@ -1097,12 +1097,12 @@
 <ul>
   <li>in [1], the URL server that serves the <i><mark style="background-color: #fff5ce">[React]</mark></i> application;
   </li>
-  <li>to [2], the URL of the server <i><mark style="background-color: #fff5ce">[NestJS] </mark></i>that manages the database <i><mark style="background-color: #fff5ce">[rdvmedecins]</mark></i>;
+  <li>to [2], the URL of the server <i><mark style="background-color: #fff5ce">[NestJS] </mark></i>that manages the database [dbrdvmedecins];
   </li>
 </ul>
 
 <p>It is important to understand that there are two web servers here, one of which acts as a client to the other.</p>
-<p>Two buttons labeled “FR” and “EN” in the upper-right corner allow you to switch the interface to English, even before logging in. Log in with one of the two demo accounts (admin/admin, full access, or user/user, read-only) to access the rest of the application. Chapter 5 provides a detailed guide to using this client, with screenshots for each step.</p>
+<p>Two buttons labeled “FR” and “EN” in the upper-right corner allow you to switch the interface to French (it is displayed in English by default, or in French if the browser is set to French), even before logging in. Log in with one of the two demo accounts (admin/admin, full access, or user/user, read-only) to access the rest of the application. Chapter 5 provides a detailed guide to using this client, with screenshots for each step.</p>
 
 
 
